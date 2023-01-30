@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AdapterDesignPatternDemo.Models.Employee>
+ 
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+<div class="row">
+    <div class="col">
+        <h1>Employees</h1>
+    </div>
+    <div class="col text-right">
+        <form asp-action="SubmitEmployees" method="post">
+            <div class="form-group">
+                <input type="submit" value="Submit Employees" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+ 
+<br/>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>  
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
